@@ -17,7 +17,7 @@ Template.postEdit.events({
       if (error) {
 
         // display error to user
-        alert(error.reason);
+        throwError(error.reason);
 
       } else {
 

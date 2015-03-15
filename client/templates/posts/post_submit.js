@@ -12,12 +12,12 @@ Template.postSubmit.events({
 
       // display the error to the user
       if (error) {
-        return alert(error.reason);
+        return throwError(error.reason);
       }
 
       // show this result buit route anyway
       if (result.postExists) {
-        alert('This link has alreay been posted');
+        throwError('This link has alreay been posted');
       }
 
       Router.go('postPage', {
