@@ -4,8 +4,12 @@ Meteor.publish('posts', function () {
 
 });
 
-Meteor.publish('comments', function () {
+Meteor.publish('comments', function (postId) {
 
-  return Comments.find();
+  check(postId, String);
+
+  return Comments.find({
+    postId: postId
+  });
 
 });
