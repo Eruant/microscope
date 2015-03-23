@@ -2,6 +2,15 @@ Template.postsList.rendered = function () {
 
   this.find('.wrapper')._uihooks = {
 
+    insertElement: function (node, next) {
+
+      $(node)
+        .hide()
+        .insertBefore(next)
+        .fadeIn();
+
+    },
+
     moveElement: function (node, next) {
 
       var $node = $(node),
@@ -44,6 +53,14 @@ Template.postsList.rendered = function () {
         .addClass('animate')
         .css('top', 0);
 
+    },
+
+    removeElement: function (node) {
+
+      $(node)
+        .fadeOut(function () {
+          $(this).remove();
+        });
     }
 
   };
